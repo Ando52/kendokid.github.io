@@ -4,13 +4,66 @@
     <title>Kailo Ando's Portfolio</title>
     
     <!-- link to main stylesheet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/script.js"></script>
+
+    <style>
+      @keyframes grow {
+        from {
+          font-size: 20px;
+        }
+        to {
+          font-size: 100px;
+        }
+      }
+
+      h3 {
+        animation-name: grow;
+        animation-duration: 2s;
+        animation-fill-mode:forwards;
+      }
+    </style>
   </head>
   
   <body>
+    <h1>Welcome!</h1>
+    <ul class="navbar">
+      <li><a class="class">Logo</a></li>
+      <li><a>Projects</a></li>
+      <li><a>About</a></li>
+      <li><a>Contact</a></li>
+    </ul>
+
     <h1> Hello World title</h1>
     <p id="hello">This is the body of the website</p>
     <h2>I testing to see how long it will take it</h2>
-  </body>
+
+
+
+    <div class="project-container">
+      <h1>Project 1</h1>
+      <div class="project">
+        <div class="code_img"></div>
+        <div class="description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+        </div>
+      </div>
+      <button type="button" class="details"></button>
+      <div class="details-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+      </div>
+    </div>
+
   
+    <div class="project-container">
+      <h1>Project 2</h1>
+      <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+      </div>
+      <button type="button" class="details"></button>
+      <div class="details-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+      </div>
+    </div>
 </html>
