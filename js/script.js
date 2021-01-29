@@ -1,47 +1,15 @@
-alert("hello world help");
-
 //Waits for the page to load abefore we start
 document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.details').forEach(details => {
         details.onclick = () => {show_details(details)};
     });
-
-    //document.querySelector('.test').addEventListener('click', () => show_details());
-    //document.querySelectorAll('.collapsible').forEach.addEventListener('click', () => show_details());
-   // doesn't work document.querySelectorAll('.test').forEach.addEventListener('click', () => show_details());
-//    document.querySelectorAll('.collapsible').forEach(button => {
-  //      button.addEventLIstener('click', event => {
-    //        alert('button has been clicked');
-      //  });
-    //});
-
-    //document.querySelector('.test').addEventListener('click', () => show_details());
-
-    //The test for the collapsible button
-    //document.querySelectorAll('.test').forEach(expand => {
-      //  expand.onclick = () => {show_details()};
-    //});
-
-
-    // Listen for the button presses of the detail button
-    //document.querySelectorAll('.collapsible').addEventListener('click', () => show_details());
-
-    //document.querySelectorAll('button').forEach(button => {
-        //button.onclick = function() {
-            //showPage(this.dataset.page);
-        //};
-    //});
-    //document.querySelectorAll('.collapsible').forEach(button => {
-      //  button.addEventListener('click',() => show_details);
-    //})
-    
-
+    navSlide();
 });
 
-function show_details(button){
-    
 
+//The script that toggles the more details button to expand
+function show_details(button){
     button.classList.toggle("active");  
     var content = button.nextElementSibling;
     console.log(content);
@@ -53,3 +21,48 @@ function show_details(button){
         content.style.maxHeight = content.scrollHeight + "px";
     }
 };
+
+function toggle_burger(){
+    console.log("hello");
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelector('.nav-links li');
+
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+
+        navLinks.forEach((link, index) =>{
+            if (link.style.animation){
+                link.style.animation = '';
+            } else {
+                link.style.animation = 'navLinkFade 0.5 ease forwards ${index/7}s'
+            }
+        });
+        burger.classList.toggle('toggle')
+    })
+
+
+};
+
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+    
+        navLinks.forEach((link, index) => {
+            if (link.style.animation){
+               link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+            }
+          });
+        
+        burger.classList.toggle('toggle');
+    });
+
+
+    
+}
