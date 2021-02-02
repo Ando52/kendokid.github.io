@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.details').forEach(details => {
         details.onclick = () => {show_details(details)};
     });
+
     navSlide();
 });
 
@@ -42,6 +43,20 @@ function toggle_burger(){
     })
 
 
+};
+
+function nav_scroll(){
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function(){
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos){
+            document.querySelector(".nav").style.top = "0";
+        } else {
+            console.log(document.getElementsByClassName('nav').style);
+            document.querySelector(".nav").style.top = "-8vh";
+        }
+        prevScrollpos = currentScrollPos;
+    }
 };
 
 const navSlide = () => {
