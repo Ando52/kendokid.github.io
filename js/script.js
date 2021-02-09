@@ -1,6 +1,9 @@
 //Waits for the page to load abefore we start
 document.addEventListener('DOMContentLoaded', () => {
 
+    text_appear();
+    window.addEventListener('scroll', education_appear);
+
     document.querySelectorAll('.details').forEach(details => {
         details.onclick = () => {show_details(details)};
     });
@@ -11,14 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //The script that toggles the more details button to expand
 function show_details(button){
-    button.classList.toggle("active");  
-    var content = button.nextElementSibling;
-    console.log(content);
-    console.log(content.style.display === "none");
+    button.classList.toggle("active");   //toggles the active css 
+    var content = button.nextElementSibling; //the next element to the current button (the text stuff);
 
-    if (content.style.maxHeight){
+    if (content.style.maxHeight){// if content.style.maxHeight exists then turn it to null
         content.style.maxHeight = null;
-    } else {
+    } else {                    // if content.style.maxHeight is null hten change it to the scroll height of the content
         content.style.maxHeight = content.scrollHeight + "px";
     }
 };
@@ -81,3 +82,38 @@ const navSlide = () => {
 
     
 }
+
+function show_text(element, show = 1.3){
+    //element: should be a string that is either the class or id of an html element
+    //show: is floating point value that will determifne where the text will appear.
+
+    var screenPosition = window.innerHeight / show;
+    var textElement = document.querySelector(element);
+    var textPosition = textElement.getBoundingClientRect().top;
+
+    if (textPosition < screenPosition){
+        textElement.classList.add('text-appear');
+    }
+
+};
+
+function text_appear(){
+    var screenPosition = window.innerHeight;
+    var introTitle = document.querySelector(".intro-title");
+    var introPosition = introTitle.getBoundingClientRect().top;
+
+    if (introPosition < screenPosition){
+        introTitle.classList.add('text-appear');
+    }
+};
+
+function education_appear(){
+    var screenPosition = window.innerHeight / 2;
+    var eduText = document.querySelector(".education-text");
+    var eduPosition = eduText.getBoundingClientRect().top;
+
+    if(eduPosition < screenPosition){
+        console.log("show the thing");
+        eduText.classList.add('text-appear');
+    }
+};
