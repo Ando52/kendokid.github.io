@@ -8,14 +8,38 @@ document.addEventListener('DOMContentLoaded', () => {
         details.onclick = () => {show_details(details)};
     });
 
+    document.querySelectorAll('.expand-button').forEach(button => {
+        button.onclick = () => {expand_content(button)};
+    });
+
     navSlide();
 });
 
+function expand_content(button){
+    button.classList.toggle("expanded");   //toggles the active css 
+    var content = button.nextElementSibling; //the next element to the current button (the text stuff);
+    var arrow = button.querySelector(".arrow-down");
+
+    arrow.classList.toggle("is-expanded");
+
+    console.log(content.getBoundingClientRect().bottom);
+    if (content.style.maxHeight){// if content.style.maxHeight exists then turn it to null
+        content.style.maxHeight = null;
+        content.style.display= null;
+        content.style.borderBottom=null;
+    } else {                    // if content.style.maxHeight is null hten change it to the scroll height of the content
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.borderBottom = "2px rgb(158,158,158) solid";
+        content.style.display="block" ;
+    }
+
+}
 
 //The script that toggles the more details button to expand
 function show_details(button){
     button.classList.toggle("active");   //toggles the active css 
     var content = button.nextElementSibling; //the next element to the current button (the text stuff);
+
 
     if (content.style.maxHeight){// if content.style.maxHeight exists then turn it to null
         content.style.maxHeight = null;

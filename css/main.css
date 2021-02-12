@@ -1,3 +1,7 @@
+/*Colour sets*/
+/*The original colour set with the lowkey purple is in my phone*/
+/* this one is a pretty bright pallet #de82e7 (purple), #82e7de (greenish) e7de82 (yellowish)*/
+
 *{
   margin: 0px;
   padding: 0px;
@@ -5,29 +9,38 @@
   font-family: 'Segoe UI', Frutiger, 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif
 }
 
+body{
+  background-color: #1d1d1d;
+}
+
 html{
   scroll-behavior: smooth;
 }
 
-/* New versio of the nav bar */
+/* New version of the nav bar */
 .nav {
   position:fixed;
-  z-index: 10;
+  z-index:10;
   top:0;
   width: 100%;
   display:flex;
   justify-content:space-around;
   align-items:center;
   min-height: 8vh;
-  background-color:rgb(195, 141, 209);
+  /*background-color:#de82e7;*/
+  /*background-color: #e7de82;*/
+  background-color:#A66cdd;
   font-family:sans-serif;
   padding: 15px; 
   transition: top 0.3 ease-in-out;
-  box-shadow: 0px 2px 7px grey
+  /*box-shadow: 0px 2px 7px grey*/
 }
 
 .logo{
-  color:rgb(240,240,240);
+
+  /*color:rgb(240,240,240);*/
+  /*color: rgb(32, 32, 32);*/
+  color: rgb(245,245,245);
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 15px;
@@ -45,7 +58,6 @@ html{
   font-weight: bold;
   letter-spacing: 2px;
   font-size:13px;
-
 }
 
 .nav-links a:hover{
@@ -77,69 +89,143 @@ html{
 
 
 /* The expanding of the details for the projects */
-.details{
-  background-color:#777;
-  color: white;
-  cursor: pointer;
-  width: 100%;
-  border:none;
-  text-align:center;
-  outline: none;
-  font-size: 15px;
+
+
+.top-line{
+  position: relative;
+  opacity:0.8;
+  background:rgb(158, 158, 158);
+  margin-bottom: 5vh;
+  width: 105%;
+  left: -2.5%;
+  height: 2px;
+  transform: translateY(10px);
+  
 }
 
-.active, details:hover{
-  background-color: #555;
+.h-line1{
+  z-index:-2;
+  position:relative;
+  background-color: rgb(158, 158, 158);
+  opacity:0.8;
+  width:105%;
+  left:-2.5%;
+  height:2px;
+  transform: translateY(15px)
 }
 
-.details:after{
-  content: '\002B';
-  color:white;
-  font-weight:bold;
-  align:center;
-  margin-left: 5px;
+.h-line2{
+  z-index: -1;
+  position:relative;
+  background-color:rgb(245, 245, 245);
+  height:5px;
+  width:15%;
+  left: 42.5%;
+  transform:translateY(-13px)
 }
 
-.active:after{
-  content: "\2212";
+
+
+
+.expand-button{
+  padding: 20px;
+  padding-bottom: 5px;
+  cursor:pointer;
 }
 
-.details-content{
-  padding: 0 18px;
-  max-height: 0;
+
+
+.expand-content{
+  padding: 0px 18px;
+  padding-bottom: 25px;
+  margin-left: -2.5%;
+  width:105%;
   overflow:hidden;
-  transition:max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+  max-height:0;
+  transition: max-height 0.2s ease-out;
+  transform:translateY(-13px);
+  font-size: 18px;
+  font-weight: 2px;
 }
+
+.arrow-down{
+  
+  cursor:pointer;
+  opacity:0.7;
+  border-right:rgb(129, 129, 129) solid 2px;
+  border-bottom:rgb(129, 129, 129) solid 2px;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  margin:auto;
+  transform: rotate(45deg) translate(-5px, -5px);
+  transition: all 0.2s linear;
+
+} 
+
+.is-expanded{
+  transform: rotate(45deg) translate(5px, 5px) rotateY(180deg) rotateX(180deg);
+}
+
+.h-line1:hover .arrow-down:hover{
+  background-color:#de82e7
+}
+
 
 /* To style the project container and its contents */
 
 .project-container{
-  border: solid 1px black;
-  width: 60vw;
+  width: 80vw;
   height: 95vh;
-  margin-left: 20vw;
+  margin-left: 10vw;
   padding-top: 10vh;
-  
+  border:ivory solid 1px;
 }
 
 .project-container h1{
   text-decoration:underline;
-  
 }
 
 /* container */
 
 .container{
+  border:solid 1px black;
   padding: 15px;
-  width:60vw;
+  width:75vw;
   padding-top: 10vh;
-  margin-left:20vw;
+  margin-left:12.5vw;
   height: 90vh;
-  border: black solid 1px;
 }
 
 /* Intro Text */
+
+/* this one is a pretty bright pallet #de82e7 (purple), #82e7de (greenish) e7de82 (yellowish)*/
+.intro-title h1{
+  /*color: #82e7de;*/
+  /*color: rgb(207, 126, 214);*/
+  /*color: #c556dc;*/
+  color:rgb(245,245,245);
+  font-size: 6.5vw;
+  letter-spacing: 0.5vw;
+}
+
+.intro-title h3{
+  font-size:3.5vw;
+  letter-spacing: 0.25vw;
+  /*color: rgb(148,148,148);*/
+  color: rgb(245,245,245);
+}
+
+.intro-text h1{
+  /*color: #e7de82;*/
+  /*color:#64e0a4;*/
+  color: rgb(245,245,245);
+}
+
+.intro-text p{
+  color: rgb(245,245,245);
+  width: 45%;
+}
 
 .education-text{
   width:30%;
@@ -150,14 +236,58 @@ html{
 
 
 .intro-title {
-  width:30%;
+  font-size: 45px;
   opacity: 0;
   transform: translateX(-30px) ;
-  transition: 0.8s all ease-in-out;
+  transition: 0.9s all ease-out;
+}
+.intro-title h1{
+  letter-spacing: 25%;
+}
+
+.intro-image h1{
+  font-size:100px;
 }
 
 .text-appear{
   opacity: 1;   
   transform: translateY(0px) translateX(0px);
 }
+
+#github, #linkedin{
+  font-size: 50px;
+  color:rgb(245,245,245);
+}
+
+
+/* Styling for the Project containers*/
+
+.project-container h2{
+  color:#82e7de;
+  font-size: 25px;
+  letter-spacing: 3px;
+  margin: 10px;
+}
+
+.proj-info-zone{
+  display:flex;
+  border: solid 2px purple;
+  height:85%;
+  width:100%;
+}
+
+.project-image{
+  height:100%;
+  width: 60%; 
+  border: solid 2px rgb(245, 245, 245);
+}
+
+.project-description{
+  color:rgb(245, 245, 245);
+  height:100%;
+  width: 40%;
+  border:solid 2px yellow;
+}
+
+
 

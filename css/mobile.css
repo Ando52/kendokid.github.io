@@ -4,11 +4,12 @@
   }
   
     .nav-links{
+        z-index: -3;
         position:absolute;
           right:0px;
           height:92vh;
           top: 8vh;
-          background-color:rgb(195, 141, 209);
+          background-color:#de82e7;
           display:flex;
           flex-direction:column;
           align-items: center;
@@ -38,11 +39,16 @@
         margin-left:5vw;
     }
     
+    .top-line{
+        width:105%;
+        left:-2.5%;
+    }
 
 
     /* Animations for burger and side nav*/
 
     .nav-active{
+    z-index: -1;
     transform: translateX(0%);
     }
 
